@@ -1,3 +1,5 @@
+<img src="readme-banner.png" alt="YC Playbook preview" />
+
 # YC Playbook
 
 Get your first 100 customers with the **YC (Y Combinator) growth playbook**, run as a
