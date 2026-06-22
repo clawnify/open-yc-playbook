@@ -1,0 +1,47 @@
+{
+  "$schema": "https://app.clawnify.com/schema/v1/clawnify.json",
+  "version": 1,
+  "name": "YC Playbook",
+  "description": "Get your first 100 customers with the YC (Y Combinator) growth playbook, run as a GTM war room. Seven plays — launch-max, steal competitor backlinks, warm outbound, UGC creators, video content, communities, and trend-riding — over one shared pipeline with a single weekly growth number. Built to be driven by Clawnify agents.",
+  "icon": "icon.svg",
+  "tags": ["yc", "y-combinator", "first-100-customers", "growth", "gtm", "sales", "marketing", "startup"],
+  "template": {
+    "displayName": "YC Playbook",
+    "category": "Marketing"
+  },
+  "app": {
+    "framework": "preact+hono",
+    "database": true,
+    "storage": false
+  },
+  "deploy": {
+    "title": "Deploy your YC Playbook",
+    "subtitle": "Get your first 100 customers — the YC playbook, with agents doing the grind.",
+    "prompts": [
+      {
+        "key": "product",
+        "label": "What do you sell, in one line?",
+        "placeholder": "e.g. AI bookkeeping for Shopify stores",
+        "required": true
+      },
+      {
+        "key": "icp",
+        "label": "Who are your first 100 customers?",
+        "type": "textarea",
+        "placeholder": "Role, company size, and the pain they feel today"
+      },
+      {
+        "key": "competitors",
+        "label": "Your closest competitors (one per line)",
+        "type": "textarea",
+        "placeholder": "acme.com\nrival.io"
+      },
+      {
+        "key": "goal_customers",
+        "label": "Customer goal",
+        "placeholder": "100"
+      }
+    ]
+  },
+  "agent": "AGENT.md"
+}
