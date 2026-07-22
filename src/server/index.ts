@@ -1,10 +1,18 @@
-import { Hono } from "hono";
-import { initDB, query, get, run } from "./db";
+import { createApp } from "@clawnify/app";
+import { query, get, run } from "./db";
 import { PLAYS, type Resource, type Col } from "../shared/plays";
 
 type Env = { Bindings: { DB: D1Database } };
 
-const app = new Hono<Env>();
+// createApp bakes in the standard skeleton: OpenAPIHono construction, the
+// per-request D1/Storage init middleware, and API discovery (GET
+// /api/openapi.json + GET /llms.txt from the live routes).
+const app = createApp<Env>({
+  title: "YC Playbook",
+  version: "1.0.0",
+  description:
+    "Get your first 100 customers with the YC growth playbook — seven plays over one shared pipeline with a single weekly growth number.",
+});
 
 // Surface real error messages instead of Hono's opaque "Internal Server Error"
 // so the dashboard toast (and logs) say what actually failed.
@@ -21,8 +29,8 @@ async function ensureSeed() {
   seeded = true;
 }
 
+// DB init is baked into createApp; this middleware only handles the one-time seed.
 app.use("*", async (c, next) => {
-  initDB(c.env);
   await ensureSeed();
   await next();
 });
