@@ -2,6 +2,8 @@
 
 # YC Playbook
 
+[![Deploy with Clawnify](https://app.clawnify.com/deploy-button.svg)](https://app.clawnify.com/deploy?repo=clawnify/open-yc-playbook)
+
 Get your first 100 customers with the **YC (Y Combinator) growth playbook**, run as a
 go-to-market **war room** a team can actually execute — seven plays over one shared
 pipeline, with a single weekly growth number on top. Built as a
