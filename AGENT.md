@@ -39,7 +39,7 @@ Each play is a table with a generic REST surface:
 | 6 | Communities | `communities` | found → joined → pitched → featured → passed | Find the Slack/Discord groups, newsletters, podcasts the ICP lives in, draft shoutout outreach. Founder OKs paid placements. |
 | 7 | Ride trends | `trends` | spotted → drafted → posted → passed | Weekly: pull trending topics, find viral GTM posts, draft a product-folded reply/quote. Founder approves the post. |
 
-The exact writable fields per play are the columns in `src/server/schema.sql`. New
+The exact writable fields per play are the columns in `schema.sql`. New
 items default to the first status; advance them with `PATCH … {"status": "…"}`.
 
 ## Autonomy boundary (semi-autonomous)

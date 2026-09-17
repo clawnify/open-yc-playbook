@@ -63,10 +63,11 @@ paid moves).
 ## Project layout
 
 ```
+schema.sql                 # D1 schema (7 play tables + settings + weekly_metrics)
+demo/seed.sql              # fictional sample data for the Clawnify demo workspace
 src/
   shared/plays.ts          # the 7 plays defined once — drives server + client
   server/
-    schema.sql             # D1 schema (7 play tables + settings + weekly_metrics)
     index.ts               # Hono API: generic per-play CRUD + standup/stats/metrics
     db.ts                  # @clawnify/db re-export
   client/

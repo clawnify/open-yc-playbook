@@ -2,9 +2,16 @@ import { useState, useEffect, useCallback } from "preact/hooks";
 import { api } from "../api";
 import type { MissionContextValue } from "../context";
 import type { View, Item, Stats, StandupMove, Settings, Metric } from "../types";
+import { PLAYS } from "../../shared/plays";
+
+// ?view= restores the open view on reload (the Clawnify dashboard keeps it in its own URL).
+function initialView(): View {
+  const v = new URLSearchParams(window.location.search).get("view");
+  return v && (v === "standup" || v === "settings" || PLAYS.some((p) => p.name === v)) ? v : "standup";
+}
 
 export function useMissionState(): MissionContextValue {
-  const [view, setView] = useState<View>("standup");
+  const [view, setView] = useState<View>(initialView);
   const [stats, setStats] = useState<Stats | null>(null);
   const [standup, setStandup] = useState<StandupMove[]>([]);
   const [settings, setSettings] = useState<Settings | null>(null);

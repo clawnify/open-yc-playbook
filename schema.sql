@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS settings (
   goal_customers INTEGER DEFAULT 100,
   updated_at TEXT DEFAULT (datetime('now'))
 );
-INSERT OR IGNORE INTO settings (id) VALUES (1);
+-- The row itself is created by the app (ensureSeed in index.ts): schema.sql is DDL only.
 
 -- ── Play 1: Launch-max ──────────────────────────────────────────────
 -- Launch on every platform, 3x minimum. status: planned → scheduled → live → done
