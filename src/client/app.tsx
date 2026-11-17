@@ -1,5 +1,5 @@
 import { useEffect } from "preact/hooks";
-import { AppNav, embedded, reportLocation, type AppNavGroup } from "@clawnify/app/client";
+import { AppNav, reportLocation, type AppNavGroup } from "@clawnify/app/client";
 import { MissionContext } from "./context";
 import { useMissionState } from "./hooks/use-mission";
 import { Sidebar } from "./components/sidebar";
@@ -35,12 +35,11 @@ export function App() {
   return (
     <MissionContext.Provider value={state}>
       <div class="layout">
-        {embedded ? (
-          <AppNav title="YC Playbook" icon="target" active={state.view} groups={hostNav}
-            onNavigate={(item) => state.setView(item.id)} />
-        ) : (
-          <Sidebar />
-        )}
+        {/* One <AppNav>: inside Clawnify the dashboard draws this navigation,
+            and anywhere else the playbook's own sidebar does. */}
+        <AppNav title="YC Playbook" icon="target" active={state.view} groups={hostNav}
+          onNavigate={(item) => state.setView(item.id)}
+          standalone={({ card }) => <Sidebar card={card} />} />
         <main class="main-content">
           {state.view === "standup" && <Standup />}
           {state.view === "settings" && <SettingsPanel />}

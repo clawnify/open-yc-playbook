@@ -1,8 +1,9 @@
+import type { ComponentChildren } from "preact";
 import { useMission } from "../context";
 import { Icon } from "../icons";
 import { PLAYS } from "../../shared/plays";
 
-export function Sidebar() {
+export function Sidebar({ card }: { card?: ComponentChildren }) {
   const { view, setView, stats } = useMission();
 
   return (
@@ -53,6 +54,7 @@ export function Sidebar() {
           Settings
         </button>
       </nav>
+      {card && <div style={{ padding: "0 12px 12px" }}>{card}</div>}
     </aside>
   );
 }
